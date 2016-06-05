@@ -1,0 +1,7 @@
+void calcuUV(Mat & _mat_xy, Mat & _mat_t, Mat & _mat_uv)
+{
+	Mat At = _mat_xy.t();
+	Mat Ap = At*_mat_xy;
+	invert(Ap,Ap);
+	_mat_uv = Ap*At*(_mat_t);
+}
